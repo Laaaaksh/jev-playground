@@ -29,4 +29,8 @@ Then open http://localhost:4747. Paste your TypeSafe key into the API key field 
 vercel --prod
 ```
 
+Live at https://jev-playground-beta.vercel.app.
+
+The local dev server lives in `scripts/` and `.vercelignore` keeps it out of deploys. Vercel treats a root-level `server.mjs` as the whole app, which hides `public/` and `api/`.
+
 The project deploys as a static site (`public/`) plus one serverless function (`api/run.mjs`). No project-level environment variables are required.

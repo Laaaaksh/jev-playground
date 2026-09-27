@@ -1,0 +1,6 @@
+# Local-only files. scripts/dev-server.mjs must never be uploaded: Vercel
+# auto-detects server-style entrypoints and would deploy it as the whole app,
+# hiding public/ and api/.
+scripts/
+.env
+.env*.local

@@ -9,9 +9,9 @@ import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
-import { handleRun } from "./lib/relay.mjs";
+import { handleRun } from "../lib/relay.mjs";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PUBLIC_DIR = path.join(__dirname, "public");
 const PORT = Number(process.env.PORT ?? 4747);
 
