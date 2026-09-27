@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jev Playground (unofficial)</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Jev Playground</h1>
+    <span>Unofficial &middot; not affiliated with TypeSafe AI &middot; <a href="https://github.com/Laaaaksh/jev-playground">source</a></span>
+  </header>
+
+  <main>
+    <section id="request-panel">
+      <h2>API key</h2>
+      <label for="apikey">Your Jev API key</label>
+      <input type="password" id="apikey" autocomplete="off" spellcheck="false" placeholder="sk-..." />
+      <div class="row">
+        <label class="checkbox-label"><input type="checkbox" id="remember" /> Remember on this device</label>
+        <button id="forget" type="button">Forget key</button>
+        <a href="https://console.typesafe.ai/" target="_blank" rel="noopener noreferrer">Get a key at console.typesafe.ai</a>
+      </div>
+      <p class="hint">Your key stays in this tab. Each run sends it over HTTPS to this site's relay, which forwards it to TypeSafe and never stores or logs it. Runs are billed to your TypeSafe account.</p>
+
+      <h2>Request</h2>
+      <label for="state">State</label>
+      <textarea id="state" rows="6" placeholder="Paste the text or JSON state Jev should look at..."></textarea>
+
+      <label>Questions</label>
+      <div id="questions"></div>
+      <div class="row">
+        <button id="add" type="button">+ Add question</button>
+        <button id="example" type="button">Load example</button>
+      </div>
+
+      <details>
+        <summary class="meta">Raw request JSON</summary>
+        <textarea id="raw" rows="14"></textarea>
+      </details>
+
+      <div class="row">
+        <button id="run" class="primary" type="button">Run</button>
+        <span id="status" class="meta"></span>
+      </div>
+    </section>
+
+    <section id="answers-panel">
+      <h2>Answers</h2>
+      <div id="results"><div class="empty">Run a request to see answers here.</div></div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="meta">Unofficial &middot; not affiliated with TypeSafe AI &middot; <a href="https://github.com/Laaaaksh/jev-playground">source</a></p>
+  </footer>
+
+  <template id="q-tpl">
+    <div class="q">
+      <div class="q-head">
+        <input class="qid" type="text" placeholder="question id" />
+        <select class="qtype">
+          <option value="choice">choice</option>
+          <option value="noul">yes/no</option>
+          <option value="score">score</option>
+        </select>
+        <button class="remove" type="button">Remove</button>
+      </div>
+      <label class="qinstr-label">Instructions</label>
+      <textarea class="qinstr" rows="2"></textarea>
+      <label class="qcrit-label"></label>
+      <textarea class="qcrit" rows="4"></textarea>
+      <div class="qcrit-hint hint"></div>
+    </div>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

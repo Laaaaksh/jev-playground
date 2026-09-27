@@ -1,0 +1,49 @@
+  :root {
+    --bg: #f7f7f5; --panel: #fff; --text: #1c1c1a; --muted: #6b6b66; --border: #e2e2dd;
+    --accent: #2f5bea; --accent-soft: #e6ecfd; --bar: #d9dff5; --err: #b42318; --err-soft: #fdecea;
+    --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141413; --panel: #1d1d1b; --text: #ececea; --muted: #9a9a94; --border: #2e2e2b;
+      --accent: #7c9cff; --accent-soft: #232b45; --bar: #2c3552; --err: #ff8a80; --err-soft: #3a1f1d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.5 system-ui, sans-serif; }
+  header { padding: 16px 24px; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+  header h1 { margin: 0; font-size: 18px; }
+  header span { color: var(--muted); }
+  main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; padding: 16px 24px; }
+  @media (max-width: 900px) { main { grid-template-columns: minmax(0, 1fr); padding: 16px; } }
+  section { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px; min-width: 0; }
+  h2 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  label { display: block; font-size: 12px; color: var(--muted); margin: 10px 0 4px; }
+  textarea, input, select { width: 100%; font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 8px; }
+  textarea { resize: vertical; font-family: var(--mono); font-size: 13px; }
+  .q { border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin: 10px 0; }
+  .q-head { display: grid; grid-template-columns: minmax(0, 1fr) 120px auto; gap: 8px; align-items: center; }
+  .hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  button { font: inherit; border: 1px solid var(--border); background: var(--panel); color: var(--text); border-radius: 6px; padding: 7px 12px; cursor: pointer; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+  button:disabled { opacity: .6; cursor: wait; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; align-items: center; }
+  .meta { color: var(--muted); font-size: 12px; }
+  .card { border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+  .card h3 { margin: 0 0 6px; font-size: 14px; display: flex; justify-content: space-between; gap: 8px; }
+  .tag { font-size: 11px; background: var(--accent-soft); color: var(--accent); padding: 1px 8px; border-radius: 99px; font-weight: 500; }
+  .big { font-size: 22px; font-weight: 600; }
+  .bar-row { display: grid; grid-template-columns: minmax(0, 40%) minmax(0, 1fr) 52px; gap: 8px; align-items: center; margin: 3px 0; font-size: 13px; }
+  .bar-row .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bar { height: 10px; background: var(--bar); border-radius: 5px; overflow: hidden; }
+  .bar > div { height: 100%; background: var(--accent); }
+  .num { text-align: right; font-family: var(--mono); font-size: 12px; }
+  .error { background: var(--err-soft); color: var(--err); border-radius: 8px; padding: 10px 12px; white-space: pre-wrap; font-family: var(--mono); font-size: 12px; }
+  details { margin-top: 10px; }
+  pre { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px; overflow: auto; font-size: 12px; margin: 6px 0 0; }
+  .empty { color: var(--muted); }
+  .checkbox-label { display: flex; align-items: center; gap: 6px; margin: 0; }
+  .checkbox-label input { width: auto; }
+  footer { padding: 16px 24px; border-top: 1px solid var(--border); }
+  footer p { margin: 0; }
+  #request-panel .hint { margin-bottom: 8px; }
